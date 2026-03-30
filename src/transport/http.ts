@@ -160,13 +160,16 @@ export function createHttpServer(port: number = 4000): Express {
     });
   });
 
-  // Health check endpoint
-  app.get('/healthz', (req: Request, res: Response) => {
+  // Health check endpoints
+  const healthHandler = (req: Request, res: Response) => {
     res.json({
       status: 'healthy',
       app: 'initialized',
     });
-  });
+  };
+
+  app.get('/health', healthHandler);
+  app.get('/healthz', healthHandler);
 
   return app;
 }

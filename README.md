@@ -278,7 +278,7 @@ WS_BACKEND_URL=ws://localhost:4001 npm run adapter
 - Runs on port 4000 (configurable via `PORT` env var)
 - Proxies HTTP/JSON-RPC requests to the WebSocket backend
 - Provides HTTP endpoints for testing:
-  - `GET /health` - Health check
+  - `GET /health` / `GET /healthz` - Health check
   - `GET /status` - Backend connection status
   - `GET /listTools` - List available tools
   - `POST /rpc` - JSON-RPC request endpoint
@@ -323,6 +323,7 @@ PORT=4000 npm run dev:adapter
 
 # Terminal 3: Test the server
 curl http://localhost:4000/health
+curl http://localhost:4000/healthz
 curl http://localhost:4000/listTools
 ```
 
